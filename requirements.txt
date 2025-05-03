@@ -1,0 +1,11 @@
+vtracer>=0.0.8
+PyMuPDF>=1.20.0
+numpy>=1.20.0
+pillow>=9.0.0
+torch>=1.7.0
+SVGCompress
+svg.path
+Shapely
+rdp
+Scour
+lxml
