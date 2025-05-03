@@ -1,0 +1,31 @@
+{
+    "name": "Vibrant Color Palette",
+    "description": "A bold and vibrant collection of colors for energetic and dynamic visualizations",
+    "colors": [
+      "#FF0000",  
+      "#FF4500",  
+      "#FF6347",  
+      "#FF8C00",  
+      "#FFA500",  
+      "#FFD700",  
+      "#FFFF00",  
+      "#ADFF2F",  
+      "#7FFF00",  
+      "#00FF00",  
+      "#32CD32",  
+      "#00FA9A", 
+      "#00FFFF",  
+      "#1E90FF", 
+      "#0000FF",  
+      "#4169E1",  
+      "#8A2BE2",  
+      "#9400D3",  
+      "#FF00FF", 
+      "#FF1493",  
+      "#FF69B4",  
+      "#FFB6C1",  
+      "#FFC0CB",  
+      "#F08080",  
+      "#FA8072"   
+    ]
+  }

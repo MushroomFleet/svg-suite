@@ -1,0 +1,31 @@
+{
+    "name": "Nature Palette",
+    "description": "A collection of earthy and natural colors inspired by forests, oceans, and landscapes",
+    "colors": [
+      "#1E4D2B",  
+      "#2E6E41",  
+      "#3A8C5F",  
+      "#50A070",  
+      "#8FBC8F",  
+      "#A7C9A7",  
+      "#D2E8D2",  
+      "#E8F5E9",  
+      "#614126",  
+      "#8B5A2B",  
+      "#A67C52",  
+      "#CD853F",  
+      "#D2B48C",  
+      "#F5DEB3", 
+      "#1A5276",  
+      "#2874A6", 
+      "#3498DB",  
+      "#85C1E9",  
+      "#AED6F1",  
+      "#D6EAF8",  
+      "#F1C40F",  
+      "#F39C12",  
+      "#E67E22",  
+      "#FADBD8",  
+      "#F8F9F9"   
+    ]
+  }
