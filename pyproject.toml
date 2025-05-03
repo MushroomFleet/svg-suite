@@ -1,0 +1,15 @@
+[project]
+name = "svg-suite"
+description = "SVG Suite is an advanced set of nodes for converting images to SVG in ComfyUI, expanding upon the functionality of ComfyUI-ToSVG."
+version = "1.0.0"
+license = {file = "LICENSE"}
+dependencies = ["vtracer>=0.0.8", "PyMuPDF>=1.20.0", "numpy>=1.20.0", "pillow>=9.0.0", "torch>=1.7.0", "SVGCompress>=0.13", "svg.path", "Shapely", "rdp", "Scour", "lxml"]
+
+[project.urls]
+Repository = "https://github.com/MushroomFleet/svg-suite"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = ""
+DisplayName = "svg-suite"
+Icon = ""
