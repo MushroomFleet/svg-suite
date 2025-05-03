@@ -38,7 +38,7 @@ The `Image Bytes to SVG` node enables conversion from raw image data:
 
 ### 5. SVG Compression & Optimization
 
-The suite now includes powerful SVG compression and optimization capabilities:
+The suite includes powerful SVG compression and optimization capabilities:
 
 #### Advanced SVG Compression
 
@@ -69,12 +69,43 @@ The `SVG Optimize Presets` node offers one-click optimization with predefined co
 - **Maximum**: Aggressive optimization for significantly smaller files
 - **Compressed**: Maximum optimization plus additional compression techniques
 
+### 6. SVG Color Manipulation
+
+The suite now includes tools for analyzing and modifying the colors in SVG files:
+
+#### SVG Color Extractor
+
+The `SVG Color Extractor` node helps identify all colors used in an SVG:
+
+- **Color Discovery**: Automatically finds all fill colors in the SVG
+- **Analysis**: Useful for preparing color replacements or understanding SVG structure
+- **Compatible Output**: Returns colors in standard hex format for easy reuse
+
+#### SVG Color Replacer
+
+The `SVG Color Replacer` node enables precise color substitution in SVGs:
+
+- **Targeted Replacement**: Replace specific colors with new ones
+- **Batch Processing**: Handle multiple color replacements at once
+- **Format Control**: Works with both style and fill attributes
+
+#### SVG Batch Color Effects
+
+The `SVG Batch Color Effects` node applies color transformations across the entire SVG:
+
+- **Built-in Transformations**: 
+  - **Invert**: Flip colors to their opposites
+  - **Grayscale**: Convert to shades of gray using luminance calculation
+  - **Sepia**: Add warm sepia tone effect
+- **Custom Mappings**: Define your own color transformation rules
+- **Preserves Structure**: Maintains all SVG elements while changing only colors
+
 ## Usage
 
 1. Add any of the nodes from the "💎TOSVG/Advanced" category to your workflow
 2. Connect image data, file paths, or image bytes as required
 3. Adjust parameters to control the SVG conversion process
-4. Apply compression and optimization as needed
+4. Apply compression, optimization, or color changes as needed
 5. Preview and save your SVG output
 
 ## Parameters Explained
@@ -118,6 +149,13 @@ The `SVG Optimize Presets` node offers one-click optimization with predefined co
 - **simplify_colors**: Convert colors to simpler formats where possible
 - **precision**: Number of decimal places for coordinates (lower = smaller file but less precision)
 
+### Color Manipulation Parameters
+
+- **color_mapping**: Pairs of source and target colors in the format "#FF0000:#0000FF,#00FF00:#FFFF00"
+- **transformation**: Preset color transformations (invert, grayscale, sepia, or custom)
+- **apply_to_fill_attribute**: Whether to modify colors in the fill attribute
+- **apply_to_style_attribute**: Whether to modify colors in the style attribute
+
 ## Compression and Optimization Workflow
 
 For optimal results with complex SVGs:
@@ -125,8 +163,19 @@ For optimal results with complex SVGs:
 1. First convert your image to SVG using one of the conversion nodes
 2. Apply the `Advanced SVG Compression` node to reduce complexity
 3. Further reduce file size with the `SVG Optimize (Scour)` node
-4. Preview the result and adjust parameters as needed
-5. Save the optimized SVG with the `Save SVG (Advanced)` node
+4. Apply color changes with the Color Manipulation nodes if needed
+5. Preview the result and adjust parameters as needed
+6. Save the optimized SVG with the `Save SVG (Advanced)` node
+
+## Color Editing Workflow
+
+To transform the colors in an SVG:
+
+1. Use `SVG Color Extractor` to identify the colors in your SVG
+2. Based on the results, create a color mapping string (e.g., "#FF0000:#0000FF,#00FF00:#FFFF00")
+3. Use `SVG Color Replacer` with your color mapping to create a modified SVG
+4. Alternatively, use `SVG Batch Color Effects` to apply predefined transformations
+5. Preview and save the resulting SVG
 
 ## Comparison with Original ComfyUI-ToSVG
 
@@ -138,6 +187,7 @@ SVG Suite expands upon the original implementation by:
 4. Providing SVG optimization and minification
 5. Enhancing preview capabilities with scaling and background options
 6. Adding advanced SVG compression and optimization
+7. Including SVG color extraction and manipulation tools
 
 ## Requirements
 

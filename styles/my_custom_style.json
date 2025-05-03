@@ -1,0 +1,16 @@
+{
+  "name": "my_custom_style",
+  "description": "Custom style created from SVG",
+  "author": "ComfyUI User",
+  "version": "1.0",
+  "rules": [
+    {
+      "selector": "path",
+      "attributes": {
+        "fill": "#020202",
+        "d": "M0 0 C0.99 0 1.98 0 3 0 C3 0.99 3 1.98 3 3 C2.01 3 1.02 3 0 3 C0 2.01 0 1.02 0 0 Z ",
+        "transform": "translate(328,434)"
+      }
+    }
+  ]
+}

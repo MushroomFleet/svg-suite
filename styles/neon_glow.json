@@ -1,0 +1,64 @@
+{
+    "name": "Neon Glow",
+    "description": "Vibrant neon colors with glow effects",
+    "author": "ComfyUI",
+    "version": "1.0",
+    "rules": [
+      {
+        "selector": "path",
+        "attributes": {
+          "stroke": "#00FFFF",
+          "stroke-width": "2",
+          "fill": "none",
+          "filter": "url(#neonGlow)"
+        }
+      },
+      {
+        "selector": "circle, ellipse",
+        "attributes": {
+          "stroke": "#FF00FF",
+          "stroke-width": "2",
+          "fill": "none",
+          "filter": "url(#neonGlow)"
+        }
+      },
+      {
+        "selector": "rect, polygon, polyline",
+        "attributes": {
+          "stroke": "#FFFF00",
+          "stroke-width": "2",
+          "fill": "none",
+          "filter": "url(#neonGlow)"
+        }
+      }
+    ],
+    "defs": [
+      {
+        "type": "filter",
+        "id": "neonGlow",
+        "attributes": {
+          "x": "-20%",
+          "y": "-20%",
+          "width": "140%",
+          "height": "140%"
+        },
+        "children": [
+          {
+            "type": "feGaussianBlur",
+            "attributes": {
+              "stdDeviation": "5",
+              "result": "blur"
+            }
+          },
+          {
+            "type": "feColorMatrix",
+            "attributes": {
+              "in": "blur",
+              "type": "matrix",
+              "values": "1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 10 0"
+            }
+          }
+        ]
+      }
+    ]
+  }

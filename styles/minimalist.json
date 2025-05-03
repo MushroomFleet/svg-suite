@@ -1,0 +1,16 @@
+{
+    "name": "Minimalist",
+    "description": "Clean, minimalist black and white style",
+    "author": "ComfyUI",
+    "version": "1.0",
+    "rules": [
+      {
+        "selector": "*",
+        "attributes": {
+          "fill": "none",
+          "stroke": "#000000",
+          "stroke-width": "1"
+        }
+      }
+    ]
+  }

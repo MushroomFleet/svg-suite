@@ -1,0 +1,29 @@
+{
+    "name": "Colorful Flat",
+    "description": "Modern flat design with bright colors",
+    "author": "ComfyUI",
+    "version": "1.0",
+    "rules": [
+      {
+        "selector": "path:nth-child(3n+1), circle:nth-child(3n+1), rect:nth-child(3n+1)",
+        "attributes": {
+          "fill": "#FF5252",
+          "stroke": "none"
+        }
+      },
+      {
+        "selector": "path:nth-child(3n+2), circle:nth-child(3n+2), rect:nth-child(3n+2)",
+        "attributes": {
+          "fill": "#4CAF50",
+          "stroke": "none"
+        }
+      },
+      {
+        "selector": "path:nth-child(3n+3), circle:nth-child(3n+3), rect:nth-child(3n+3)",
+        "attributes": {
+          "fill": "#2196F3",
+          "stroke": "none"
+        }
+      }
+    ]
+  }

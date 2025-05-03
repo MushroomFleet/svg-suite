@@ -1,0 +1,43 @@
+{
+    "name": "Blueprint",
+    "description": "Technical blueprint style with grid",
+    "author": "ComfyUI",
+    "version": "1.0",
+    "rules": [
+      {
+        "selector": "*",
+        "attributes": {
+          "fill": "none",
+          "stroke": "#0055FF",
+          "stroke-width": "1"
+        }
+      }
+    ],
+    "defs": [
+      {
+        "type": "pattern",
+        "id": "grid",
+        "attributes": {
+          "width": "20",
+          "height": "20",
+          "patternUnits": "userSpaceOnUse"
+        },
+        "children": [
+          {
+            "type": "path",
+            "attributes": {
+              "d": "M 20 0 L 0 0 0 20",
+              "fill": "none",
+              "stroke": "#0055FF",
+              "stroke-width": "0.5",
+              "opacity": "0.3"
+            }
+          }
+        ]
+      }
+    ],
+    "background": {
+      "fill": "#F0F8FF",
+      "pattern": "url(#grid)"
+    }
+  }
