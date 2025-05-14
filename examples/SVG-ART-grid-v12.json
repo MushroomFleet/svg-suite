@@ -1,0 +1,527 @@
+{
+  "id": "edaf3e44-d29b-450e-8162-4fa3ed2d0eb6",
+  "revision": 0,
+  "last_node_id": 16,
+  "last_link_id": 12,
+  "nodes": [
+    {
+      "id": 5,
+      "type": "SVGPreview",
+      "pos": [
+        1180,
+        340
+      ],
+      "size": [
+        381.3004150390625,
+        263.23577880859375
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "svg_strings",
+          "type": "STRING",
+          "link": 5
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "ComfyUI-ToSVG",
+        "ver": "09d6f6b89e52e7b529741cf82a9a15ab3f7fd857",
+        "Node name for S&R": "SVGPreview"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 7,
+      "type": "SaveSVGAdvanced",
+      "pos": [
+        2020,
+        730
+      ],
+      "size": [
+        272.744140625,
+        154
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "svg_string",
+          "type": "STRING",
+          "link": 6
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": 11
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "SVG-Suite",
+        "ver": "527b4399c574237e28298ccd2ec7117c118689b4",
+        "Node name for S&R": "SaveSVGAdvanced"
+      },
+      "widgets_values": [
+        "ComfyUI_SVG_Advanced",
+        true,
+        "",
+        false,
+        false
+      ]
+    },
+    {
+      "id": 9,
+      "type": "ConvertVectorToRaster",
+      "pos": [
+        1700,
+        700
+      ],
+      "size": [
+        183.05819702148438,
+        26
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "svg_strings",
+          "type": "STRING",
+          "link": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            8
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "ComfyUI-ToSVG",
+        "ver": "09d6f6b89e52e7b529741cf82a9a15ab3f7fd857",
+        "Node name for S&R": "ConvertVectorToRaster"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 10,
+      "type": "SaveImage",
+      "pos": [
+        1660,
+        800
+      ],
+      "size": [
+        270,
+        270
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 8
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": 12
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.33",
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "SVGScourOptimize",
+      "pos": [
+        760,
+        730
+      ],
+      "size": [
+        323.41015625,
+        418
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "svg_string",
+          "type": "STRING",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            4,
+            6,
+            7
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "SVG-Suite",
+        "ver": "527b4399c574237e28298ccd2ec7117c118689b4",
+        "Node name for S&R": "SVGScourOptimize"
+      },
+      "widgets_values": [
+        true,
+        true,
+        true,
+        true,
+        "none",
+        true,
+        true,
+        true,
+        true,
+        "",
+        true,
+        5,
+        false,
+        false,
+        false,
+        ""
+      ]
+    },
+    {
+      "id": 3,
+      "type": "SVGPreview",
+      "pos": [
+        1180,
+        730
+      ],
+      "size": [
+        381.3004150390625,
+        263.23577880859375
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "svg_strings",
+          "type": "STRING",
+          "link": 4
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "ComfyUI-ToSVG",
+        "ver": "09d6f6b89e52e7b529741cf82a9a15ab3f7fd857",
+        "Node name for S&R": "SVGPreview"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 12,
+      "type": "ProjectFilePathNode",
+      "pos": [
+        2020,
+        510
+      ],
+      "size": [
+        270,
+        154
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            11
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "e16b8572cfd94c85cb3d24aee8bd5029e6d08672",
+        "Node name for S&R": "ProjectFilePathNode"
+      },
+      "widgets_values": [
+        "SVGsuite",
+        "test",
+        "SVG",
+        "vector",
+        "auto"
+      ]
+    },
+    {
+      "id": 13,
+      "type": "ProjectFilePathNode",
+      "pos": [
+        1660,
+        500
+      ],
+      "size": [
+        270,
+        154
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            12
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "e16b8572cfd94c85cb3d24aee8bd5029e6d08672",
+        "Node name for S&R": "ProjectFilePathNode"
+      },
+      "widgets_values": [
+        "SVGsuite",
+        "test",
+        "SVG",
+        "raster",
+        "auto"
+      ]
+    },
+    {
+      "id": 14,
+      "type": "Label (rgthree)",
+      "pos": [
+        232.41513061523438,
+        176.23377990722656
+      ],
+      "size": [
+        1508.251953125,
+        100
+      ],
+      "flags": {
+        "pinned": true,
+        "allow_interaction": false
+      },
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "ScuffedEpoch.com | Drift Johnson",
+      "properties": {
+        "fontSize": 100,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 1,
+      "type": "SVGArtGrid",
+      "pos": [
+        750,
+        320
+      ],
+      "size": [
+        270,
+        342
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "name": "svg_string",
+          "type": "STRING",
+          "links": [
+            3,
+            5
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "SVG-Suite",
+        "ver": "527b4399c574237e28298ccd2ec7117c118689b4",
+        "Node name for S&R": "SVGArtGrid"
+      },
+      "widgets_values": [
+        2048,
+        2048,
+        9,
+        16,
+        2306273606,
+        "randomize",
+        -1,
+        true,
+        2,
+        true,
+        "https://unpkg.com/nice-color-palettes@3.0.0/100.json",
+        "all"
+      ]
+    },
+    {
+      "id": 15,
+      "type": "Label (rgthree)",
+      "pos": [
+        222.41513061523438,
+        16.2337703704834
+      ],
+      "size": [
+        1339.2333984375,
+        150
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "SVG-Suite-ARTGrid",
+      "properties": {
+        "fontSize": 150,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 16,
+      "type": "Note",
+      "pos": [
+        232.59567260742188,
+        315.18798828125
+      ],
+      "size": [
+        491.0871887207031,
+        665.0338745117188
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "SVG-ART-grid-v12\n\nVideo: https://www.youtube.com/@ScuffedEpoch\nWorkflow: https://civitai.com/user/driftjohnson\nhttps://www.scuffedepoch.com\n\n\n- NAME YOUR PROJECT !!\n- use the group switch !!\n\n\n[discord early editions]\nhttps://discord.com/invite/uubQXhwzkj \n\n\n\n~~\n\n\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      3,
+      1,
+      1,
+      4,
+      0,
+      "STRING"
+    ],
+    [
+      4,
+      4,
+      0,
+      3,
+      0,
+      "STRING"
+    ],
+    [
+      5,
+      1,
+      1,
+      5,
+      0,
+      "STRING"
+    ],
+    [
+      6,
+      4,
+      0,
+      7,
+      0,
+      "STRING"
+    ],
+    [
+      7,
+      4,
+      0,
+      9,
+      0,
+      "STRING"
+    ],
+    [
+      8,
+      9,
+      0,
+      10,
+      0,
+      "IMAGE"
+    ],
+    [
+      11,
+      12,
+      0,
+      7,
+      1,
+      "STRING"
+    ],
+    [
+      12,
+      13,
+      0,
+      10,
+      1,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "frontendVersion": "1.18.9",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
