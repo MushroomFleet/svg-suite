@@ -86,6 +86,20 @@ try:
 except Exception as e:
     print(f"Error importing SVGArtGridV2: {e}")
 
+try:
+    from .SVGArtGridV3 import NODE_CLASS_MAPPINGS as ARTGRID_V3_NODE_MAPPINGS
+    from .SVGArtGridV3 import NODE_DISPLAY_NAME_MAPPINGS as ARTGRID_V3_DISPLAY_MAPPINGS
+    print("Successfully imported SVGArtGridV3 nodes")
+except Exception as e:
+    print(f"Error importing SVGArtGridV3: {e}")
+
+try:
+    from .SVGArtGridV4 import NODE_CLASS_MAPPINGS as ARTGRID_V4_NODE_MAPPINGS
+    from .SVGArtGridV4 import NODE_DISPLAY_NAME_MAPPINGS as ARTGRID_V4_DISPLAY_MAPPINGS
+    print("Successfully imported SVGArtGridV4 nodes")
+except Exception as e:
+    print(f"Error importing SVGArtGridV4: {e}")
+
 
 # Merge the node mappings
 NODE_CLASS_MAPPINGS = {
@@ -97,7 +111,9 @@ NODE_CLASS_MAPPINGS = {
     **STRING_EDIT_NODE_MAPPINGS,
     **XML_PARSER_NODE_MAPPINGS,
     **ARTGRID_NODE_MAPPINGS,
-    **ARTGRID_V2_NODE_MAPPINGS
+    **ARTGRID_V2_NODE_MAPPINGS,
+    **ARTGRID_V3_NODE_MAPPINGS,
+    **ARTGRID_V4_NODE_MAPPINGS
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -109,7 +125,9 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     **STRING_EDIT_DISPLAY_MAPPINGS,
     **XML_PARSER_DISPLAY_MAPPINGS,
     **ARTGRID_DISPLAY_MAPPINGS,
-    **ARTGRID_V2_DISPLAY_MAPPINGS
+    **ARTGRID_V2_DISPLAY_MAPPINGS,
+    **ARTGRID_V3_DISPLAY_MAPPINGS,
+    **ARTGRID_V4_DISPLAY_MAPPINGS
 }
 
 __all__ = ['NODE_CLASS_MAPPINGS', 'NODE_DISPLAY_NAME_MAPPINGS']
