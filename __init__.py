@@ -2,132 +2,67 @@
 svg-suite: Advanced SVG conversion nodes for ComfyUI
 """
 
+import os
+import importlib.util
+import sys
+
 # Initialize empty dictionaries for all mappings
-ADVANCED_NODE_MAPPINGS = {}
-ADVANCED_DISPLAY_MAPPINGS = {}
-COMPRESS_NODE_MAPPINGS = {}
-COMPRESS_DISPLAY_MAPPINGS = {}
-COLOR_NODE_MAPPINGS = {}
-COLOR_DISPLAY_MAPPINGS = {}
-COLOR_V2_NODE_MAPPINGS = {}
-COLOR_V2_DISPLAY_MAPPINGS = {}
-STYLER_NODE_MAPPINGS = {}
-STYLER_DISPLAY_MAPPINGS = {}
-STRING_EDIT_NODE_MAPPINGS = {}
-STRING_EDIT_DISPLAY_MAPPINGS = {}
-XML_PARSER_NODE_MAPPINGS = {}
-XML_PARSER_DISPLAY_MAPPINGS = {}
-ARTGRID_NODE_MAPPINGS =  {}
-ARTGRID_DISPLAY_MAPPINGS = {}
-ARTGRID_V2_NODE_MAPPINGS =  {}
-ARTGRID_V2_DISPLAY_MAPPINGS = {}
+NODE_CLASS_MAPPINGS = {}
+NODE_DISPLAY_NAME_MAPPINGS = {}
 
-# Try to import each module separately
-try:
-    from .svg_Advanced import NODE_CLASS_MAPPINGS as ADVANCED_NODE_MAPPINGS
-    from .svg_Advanced import NODE_DISPLAY_NAME_MAPPINGS as ADVANCED_DISPLAY_MAPPINGS
-    print("Successfully imported svg_Advanced nodes")
-except Exception as e:
-    print(f"Error importing svg_Advanced: {e}")
+# Helper function to safely import a module
+def import_module_safely(module_name, file_path):
+    try:
+        if os.path.exists(file_path):
+            # Use importlib to import the module from file path
+            spec = importlib.util.spec_from_file_location(module_name, file_path)
+            if spec:
+                module = importlib.util.module_from_spec(spec)
+                spec.loader.exec_module(module)
+                
+                # Get the mappings if they exist
+                class_mappings = getattr(module, 'NODE_CLASS_MAPPINGS', {})
+                display_mappings = getattr(module, 'NODE_DISPLAY_NAME_MAPPINGS', {})
+                
+                # Update our mappings
+                NODE_CLASS_MAPPINGS.update(class_mappings)
+                NODE_DISPLAY_NAME_MAPPINGS.update(display_mappings)
+                
+                print(f"Successfully imported {module_name} nodes")
+                return True
+        else:
+            print(f"File not found: {file_path}")
+            return False
+    except Exception as e:
+        print(f"Error importing {module_name}: {e}")
+        return False
 
-try:
-    from .SVGCompression import NODE_CLASS_MAPPINGS as COMPRESS_NODE_MAPPINGS
-    from .SVGCompression import NODE_DISPLAY_NAME_MAPPINGS as COMPRESS_DISPLAY_MAPPINGS
-    print("Successfully imported SVGCompression nodes")
-except Exception as e:
-    print(f"Error importing SVGCompression: {e}")
+# Get the current directory - using direct path rather than __file__
+current_dir = os.path.abspath(os.path.dirname(os.path.realpath(__file__)) if '__file__' in globals() else os.getcwd())
 
-try:
-    from .SVGreColor import NODE_CLASS_MAPPINGS as COLOR_NODE_MAPPINGS
-    from .SVGreColor import NODE_DISPLAY_NAME_MAPPINGS as COLOR_DISPLAY_MAPPINGS
-    print("Successfully imported SVGreColor nodes")
-except Exception as e:
-    print(f"Error importing SVGreColor: {e}")
+# List of modules to import
+modules = [
+    ('svg_Advanced', 'svg_Advanced.py'),
+    ('SVGCompression', 'SVGCompression.py'),
+    ('SVGreColor', 'SVGreColor.py'),
+    ('SVGStyler', 'SVGStyler.py'),
+    ('SVG_StringEdit', 'SVG_StringEdit.py'),
+    ('SVGXMLParser', 'SVGXMLParser.py'),
+    ('SVGreColorV2', 'SVGreColorV2.py'),
+    ('SVGArtGrid', 'SVGArtGrid.py'),
+    ('SVGArtGridV2', 'SVGArtGridV2.py'),
+    ('SVGArtGridV3', 'SVGArtGridV3.py'),
+    ('SVGArtGridV4', 'SVGArtGridV4.py'),
+    ('SVGArtGridDimensionsCalculator', 'SVGArtGridDimensionsCalculator.py')
+]
 
-try:
-    from .SVGStyler import NODE_CLASS_MAPPINGS as STYLER_NODE_MAPPINGS
-    from .SVGStyler import NODE_DISPLAY_NAME_MAPPINGS as STYLER_DISPLAY_MAPPINGS
-    print("Successfully imported SVGStyler nodes")
-except Exception as e:
-    print(f"Error importing SVGStyler: {e}")
+# Import each module
+for module_name, file_name in modules:
+    module_path = os.path.join(current_dir, file_name)
+    import_module_safely(module_name, module_path)
 
-try:
-    from .SVG_StringEdit import NODE_CLASS_MAPPINGS as STRING_EDIT_NODE_MAPPINGS
-    from .SVG_StringEdit import NODE_DISPLAY_NAME_MAPPINGS as STRING_EDIT_DISPLAY_MAPPINGS
-    print("Successfully imported SVG_StringEdit nodes")
-except Exception as e:
-    print(f"Error importing SVG_StringEdit: {e}")
-
-try:
-    from .SVGXMLParser import NODE_CLASS_MAPPINGS as XML_PARSER_NODE_MAPPINGS
-    from .SVGXMLParser import NODE_DISPLAY_NAME_MAPPINGS as XML_PARSER_DISPLAY_MAPPINGS
-    print("Successfully imported SVGXMLParser nodes")
-except Exception as e:
-    print(f"Error importing SVGXMLParser: {e}")
-
-try:
-    from .SVGreColorV2 import NODE_CLASS_MAPPINGS as COLOR_V2_NODE_MAPPINGS
-    from .SVGreColorV2 import NODE_DISPLAY_NAME_MAPPINGS as COLOR_V2_DISPLAY_MAPPINGS
-    print("Successfully imported SVGreColorV2 nodes")
-except Exception as e:
-    print(f"Error importing SVGreColorV2: {e}")
-
-try:
-    from .SVGArtGrid import NODE_CLASS_MAPPINGS as ARTGRID_NODE_MAPPINGS
-    from .SVGArtGrid import NODE_DISPLAY_NAME_MAPPINGS as ARTGRID_DISPLAY_MAPPINGS
-    print("Successfully imported SVGArtGrid nodes")
-except Exception as e:
-    print(f"Error importing SVGArtGrid: {e}")
-
-try:
-    from .SVGArtGridV2 import NODE_CLASS_MAPPINGS as ARTGRID_V2_NODE_MAPPINGS
-    from .SVGArtGridV2 import NODE_DISPLAY_NAME_MAPPINGS as ARTGRID_V2_DISPLAY_MAPPINGS
-    print("Successfully imported SVGArtGridV2 nodes")
-except Exception as e:
-    print(f"Error importing SVGArtGridV2: {e}")
-
-try:
-    from .SVGArtGridV3 import NODE_CLASS_MAPPINGS as ARTGRID_V3_NODE_MAPPINGS
-    from .SVGArtGridV3 import NODE_DISPLAY_NAME_MAPPINGS as ARTGRID_V3_DISPLAY_MAPPINGS
-    print("Successfully imported SVGArtGridV3 nodes")
-except Exception as e:
-    print(f"Error importing SVGArtGridV3: {e}")
-
-try:
-    from .SVGArtGridV4 import NODE_CLASS_MAPPINGS as ARTGRID_V4_NODE_MAPPINGS
-    from .SVGArtGridV4 import NODE_DISPLAY_NAME_MAPPINGS as ARTGRID_V4_DISPLAY_MAPPINGS
-    print("Successfully imported SVGArtGridV4 nodes")
-except Exception as e:
-    print(f"Error importing SVGArtGridV4: {e}")
-
-
-# Merge the node mappings
-NODE_CLASS_MAPPINGS = {
-    **ADVANCED_NODE_MAPPINGS, 
-    **COMPRESS_NODE_MAPPINGS, 
-    **COLOR_NODE_MAPPINGS,
-    **COLOR_V2_NODE_MAPPINGS,
-    **STYLER_NODE_MAPPINGS,
-    **STRING_EDIT_NODE_MAPPINGS,
-    **XML_PARSER_NODE_MAPPINGS,
-    **ARTGRID_NODE_MAPPINGS,
-    **ARTGRID_V2_NODE_MAPPINGS,
-    **ARTGRID_V3_NODE_MAPPINGS,
-    **ARTGRID_V4_NODE_MAPPINGS
-}
-
-NODE_DISPLAY_NAME_MAPPINGS = {
-    **ADVANCED_DISPLAY_MAPPINGS, 
-    **COMPRESS_DISPLAY_MAPPINGS, 
-    **COLOR_DISPLAY_MAPPINGS,
-    **COLOR_V2_DISPLAY_MAPPINGS,
-    **STYLER_DISPLAY_MAPPINGS,
-    **STRING_EDIT_DISPLAY_MAPPINGS,
-    **XML_PARSER_DISPLAY_MAPPINGS,
-    **ARTGRID_DISPLAY_MAPPINGS,
-    **ARTGRID_V2_DISPLAY_MAPPINGS,
-    **ARTGRID_V3_DISPLAY_MAPPINGS,
-    **ARTGRID_V4_DISPLAY_MAPPINGS
-}
+# Print the available nodes for debugging
+print(f"Available nodes: {list(NODE_CLASS_MAPPINGS.keys())}")
+print(f"Available display names: {list(NODE_DISPLAY_NAME_MAPPINGS.keys())}")
 
 __all__ = ['NODE_CLASS_MAPPINGS', 'NODE_DISPLAY_NAME_MAPPINGS']

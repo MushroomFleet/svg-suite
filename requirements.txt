@@ -4,6 +4,7 @@ numpy>=1.20.0
 pillow>=9.0.0
 torch>=1.7.0
 SVGCompress>=0.13
+svgwrite
 svg.path
 Shapely
 rdp
