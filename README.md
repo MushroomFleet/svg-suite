@@ -100,6 +100,48 @@ The `SVG Batch Color Effects` node applies color transformations across the enti
 - **Custom Mappings**: Define your own color transformation rules
 - **Preserves Structure**: Maintains all SVG elements while changing only colors
 
+### 7. SVG File Loading and Management
+
+The suite includes tools for loading and managing SVG files from organized collections:
+
+#### ZenkaiSVG V1 Node
+
+The `ZenkaiSVG V1` node enables loading SVG files from organized subdirectories in the svgstore folder:
+
+- **Organized Storage**: Load SVG files from subdirectories in `ComfyUI/svgstore/`
+- **Flexible Selection**: Choose between sequential or random selection modes
+- **Batch Loading**: Load multiple SVG files at once (1-10 files)
+- **Reproducible Results**: Use seed parameter for consistent, reproducible selections
+- **Category**: Available in the "DJZ-Nodes" category
+
+**Setup Requirements**:
+Create a `svgstore` folder in your ComfyUI root directory and organize your SVG files in subfolders:
+
+```
+ComfyUI/
+├── svgstore/
+│   ├── icons/
+│   │   ├── icon1.svg
+│   │   ├── icon2.svg
+│   │   └── icon3.svg
+│   ├── patterns/
+│   │   ├── pattern1.svg
+│   │   ├── pattern2.svg
+│   │   └── geometric.svg
+│   └── backgrounds/
+│       ├── bg1.svg
+│       ├── bg2.svg
+│       └── texture.svg
+```
+
+**Parameters**:
+- **subfolder**: Select from available subdirectories in svgstore
+- **seed**: Seed value for reproducible selection (0-4294967295)
+- **num_svgs**: Number of SVG files to load simultaneously (1-10)
+- **mode**: Selection mode - "sequential" (ordered) or "random" (shuffled)
+
+**Output**: Returns SVG content as strings that can be used with other SVG Suite nodes
+
 ## Usage
 
 1. Add any of the nodes from the "💎TOSVG/Advanced" category to your workflow
