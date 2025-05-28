@@ -53,7 +53,8 @@ modules = [
     ('SVGArtGridV2', 'SVGArtGridV2.py'),
     ('SVGArtGridV3', 'SVGArtGridV3.py'),
     ('SVGArtGridV4', 'SVGArtGridV4.py'),
-    ('SVGArtGridDimensionsCalculator', 'SVGArtGridDimensionsCalculator.py')
+    ('SVGArtGridDimensionsCalculator', 'SVGArtGridDimensionsCalculator.py'),
+    ('ZenkaiSVG_V1', 'ZenkaiSVG_V1.py')
 ]
 
 # Import each module
